@@ -35,7 +35,8 @@ const LeadInt = () => {
         if (!res.ok) throw new Error("Failed to fetch leads");
 
         const data = await res.json();
-        const leads = data.leads || data.data || [];
+        const leads = data.data|| data.leads || [];
+        console.log("........this is int data",leads)
 
         setLeadData(leads);
         setTotalPages(data.pages || Math.ceil((data.total || 1) / limit));
